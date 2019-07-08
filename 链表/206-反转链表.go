@@ -5,24 +5,23 @@ package main
 https://leetcode-cn.com/problems/reverse-linked-list/
 */
 import "fmt"
-
-type ListNode struct {
-	Val int
-
-	Next *ListNode
-}
+import m "LeetCode/链表/model"
 
 func main() {
-	node1 := ListNode{1, nil}
-	node2 := ListNode{2, nil}
+
+	node1 := m.ListNode{1, nil}
+	node2 := m.ListNode{2, nil}
 	node1.Next = &node2
-	node3 := ListNode{3, nil}
+	node3 := m.ListNode{3, nil}
 	node2.Next = &node3
 
 	fmt.Println(reverseList2(&node1))
+
+	aaa := AAA{1}
+	fmt.Println(aaa)
 }
 
-func reverseList1(head *ListNode) *ListNode {
+func reverseList1(head *m.ListNode) *m.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
@@ -32,11 +31,11 @@ func reverseList1(head *ListNode) *ListNode {
 	return newHead
 }
 
-func reverseList2(head *ListNode) *ListNode {
+func reverseList2(head *m.ListNode) *m.ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	var newHead *ListNode = nil
+	var newHead *m.ListNode = nil
 
 	for head != nil {
 		var tmp = head.Next

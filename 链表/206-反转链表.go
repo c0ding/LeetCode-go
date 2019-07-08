@@ -1,0 +1,33 @@
+package main
+
+/*
+反转链表 递归法
+https://leetcode-cn.com/problems/reverse-linked-list/
+*/
+import "fmt"
+
+type ListNode struct {
+	Val int
+
+	Next *ListNode
+}
+
+func main() {
+	node1 := ListNode{1, nil}
+	node2 := ListNode{2, nil}
+	node1.Next = &node2
+	node3 := ListNode{3, nil}
+	node2.Next = &node3
+
+	fmt.Println(reverseList(&node1))
+}
+
+func reverseList(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	var newHead = reverseList(head.Next)
+	head.Next.Next = head
+	head.Next = nil
+	return newHead
+}

@@ -1,7 +1,7 @@
 package main
 
 /*
-反转链表 递归法
+反转链表 1,递归法.  2,非递归
 https://leetcode-cn.com/problems/reverse-linked-list/
 */
 import "fmt"
@@ -19,15 +19,31 @@ func main() {
 	node3 := ListNode{3, nil}
 	node2.Next = &node3
 
-	fmt.Println(reverseList(&node1))
+	fmt.Println(reverseList2(&node1))
 }
 
-func reverseList(head *ListNode) *ListNode {
+func reverseList1(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	var newHead = reverseList(head.Next)
+	var newHead = reverseList1(head.Next)
 	head.Next.Next = head
 	head.Next = nil
+	return newHead
+}
+
+func reverseList2(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	var newHead *ListNode = nil
+
+	for head != nil {
+		var tmp = head.Next
+		head.Next = newHead
+		newHead = head
+		head = tmp
+	}
+
 	return newHead
 }

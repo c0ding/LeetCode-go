@@ -17,8 +17,6 @@ func main() {
 
 	fmt.Println(reverseList2(&node1))
 
-	aaa := AAA{1}
-	fmt.Println(aaa)
 }
 
 func reverseList1(head *m.ListNode) *m.ListNode {

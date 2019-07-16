@@ -5,9 +5,13 @@ package main
 
 https://leetcode-cn.com/problems/linked-list-cycle/
 */
-import "LeetCode/链表/model"
 
-func hasCycle(head *model.ListNode) bool {
+//type listNode struct {
+//	Val  int
+//	Next *listNode
+//}
+
+func hasCycle(head *ListNode) bool {
 
 	if head == nil || head.Next == nil {
 		return false

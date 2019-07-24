@@ -233,7 +233,10 @@ func main() {
 		fmt.Println(resp)
 	}
 	fmt.Println("---- get")
-	_ := l.Modify(1, testContains)
+	if err := l.Modify(1, testContains); err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	aNode, _ := l.Get(1)
 	fmt.Println("aNode", aNode.Item)
